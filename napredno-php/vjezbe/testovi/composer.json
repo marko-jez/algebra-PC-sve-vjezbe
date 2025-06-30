@@ -1,0 +1,19 @@
+{
+    "name": "jmarko1/testovi",
+    "require": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jmarko1\\Testovi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jmarko1"
+        }
+    ]
+}
