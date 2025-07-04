@@ -7,9 +7,7 @@ class Router {
     $this->routes[$path] = $controller;
   }
 
-  public function route() {
-    $currentUri = $_SERVER['REQUEST_URI'];
-
+  public function route(string $currentUri) {
     if(array_key_exists($currentUri, $this->routes)) {
         require $this->routes[$currentUri];
     } else {

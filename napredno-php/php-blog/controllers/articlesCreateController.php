@@ -5,4 +5,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   dd($_POST);
 }
 
-require 'views/articles-create.view.php';
+view('articles/create.php');
