@@ -1,17 +1,22 @@
 <?php
-require 'core/Database.php';
-$db = Database::getInstance();
 
-require_once 'functions.php';
+class Router {
+  private array $routes = [];
 
-$currentUri = $_SERVER['REQUEST_URI'];
+  public function addRoute(string $path, string $controller) {
+    $this->routes[$path] = $controller;
+  }
 
-if($currentUri == '/') {
-  require 'controllers/homeController.php';
-} elseif ($currentUri == '/articles') {
-  require 'controllers/articlesController.php';
-} elseif($currentUri == '/articles-create') {
-  require 'controllers/articlesCreateController.php';
-} else {
-  require 'views/404.view.php';
+  public function route() {
+    $currentUri = $_SERVER['REQUEST_URI'];
+
+    if(array_key_exists($currentUri, $this->routes)) {
+        require $this->routes[$currentUri];
+    } else {
+        require 'view/404.view.php';
+    }
+  } 
 }
+
+
+
