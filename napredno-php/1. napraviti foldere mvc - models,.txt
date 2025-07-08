@@ -1,0 +1,4 @@
+1. napraviti foldere mvc - models, views(tu naparaviti partials), controllers i u root folderu napraviti indeks.php i routes.php
+2.u index.php napraviti osnovni prikaz (to kopirati onaj view za početak)
+- head.php i foot.php napraviti u partialsima, cijeli head z indexa prebaciti u head.php a ostatak u foot.php
+- requirati head i foot u indexu.php
