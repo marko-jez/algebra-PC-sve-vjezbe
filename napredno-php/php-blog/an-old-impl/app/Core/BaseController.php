@@ -2,17 +2,16 @@
 
 namespace App\Core;
 
-use \App\Core\Database;
-
 abstract class BaseController {
   protected $db;
 
   public function __construct() {
-    $this->db = Database::getInstance()->getConnection();   
+    $this->db = \App\Core\Database::getInstance()->getConnection(); 
   }
 
   protected function render($view, $data = []) {
     extract($data);
+
     ob_start();
     include __DIR__ . "/../Views/{$view}.php";
     $content = ob_get_clean();
@@ -21,6 +20,6 @@ abstract class BaseController {
   }
 
   protected function redirect($url) {
-    header("Location: " . "https://localhost:8000/" . $url);
+    header("Location: " . 'http://localhost:8000/' . $url);
   }
 }

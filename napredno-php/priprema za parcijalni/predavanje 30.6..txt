@@ -1,0 +1,5 @@
+imam znači mapu php-blog,
+u toj mapi imam mape app, config, public i fajl composer.json.
+u mapi app imam Controllers, Core, Views.
+u Controller mapi imam php fajl HomeController.php, u Core folderu imam BaseController.php, Database.php, Router.php, a u Views mapi imam foldere home i layouts. U home folderu imam index.php, a u layouts imam main.php.
+U config mapi imam routes.php, a u mapi public imam index.php

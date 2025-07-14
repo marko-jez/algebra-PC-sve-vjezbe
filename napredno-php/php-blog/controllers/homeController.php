@@ -1,6 +1,9 @@
 <?php
 
-$naslov = 'Blog o programiranju';
-
-
-require 'views/index.view.php';
+class HomeController {
+  public function index() {
+    view('index.php', [
+      'naslov' => 'Blog o programiranju'
+    ]);
+  }
+}

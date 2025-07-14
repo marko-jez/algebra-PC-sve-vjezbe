@@ -3,25 +3,25 @@ CREATE DATABASE IF NOT EXISTS blogdb;
 USE blogdb;
 
 CREATE TABLE IF NOT EXISTS korisnici (
-  id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  korisnickoIme VARCHAR(191) UNIQUE NOT NULL,
-  email VARCHAR(191) UNIQUE NOT NULL,
-  lozinka VARCHAR(191) NOT NULL,
+  id AUTO_INCREMENT INT UNSIGNED PRIMARY KEY,
+  korisnickoIme VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL
+  lozinka VARCHAR(255) UNIQUE NOT NULL
   createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
+)
 
 CREATE TABLE IF NOT EXISTS clanci (
-  id INT UNSIGNED AUTO_INCREMENT ,
+  id AUTO_INCREMENT INT UNSIGNED,
   korisnikId INT UNSIGNED NOT NULL,
   naslov VARCHAR(255) NOT NULL,
   tijelo TEXT NOT NULL,
   createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   FOREIGN KEY (korisnikId) REFERENCES korisnici(id) ON DELETE CASCADE
-  );
+)
 
-  CREATE TABLE IF NOT EXISTS komentari (
-  id  INT UNSIGNED AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS komentari (
+  id AUTO_INCREMENT INT UNSIGNED,
   korisnikId INT UNSIGNED NOT NULL,
   clanakId INT UNSIGNED NOT NULL,
   tekst TEXT NOT NULL,
@@ -29,9 +29,8 @@ CREATE TABLE IF NOT EXISTS clanci (
   PRIMARY KEY (id),
   FOREIGN KEY (korisnikId) REFERENCES korisnici(id) ON DELETE CASCADE,
   FOREIGN KEY (clanakId) REFERENCES clanci(id) ON DELETE CASCADE
-  );
-  
-  
+)
+
 INSERT INTO korisnici (korisnickoIme, email, lozinka) VALUES
 ('bluka1', 'bluka1@example.com', 'lozinka123'),
 ('ana_k', 'ana@example.com', 'tajna456'),
@@ -49,3 +48,7 @@ INSERT INTO komentari (tekst, korisnikId, clanakId) VALUES
 ('Odlični Laravel savjeti, hvala!', 1, 3),
 ('Baš mi je ovo trebalo, super članak!', 2, 4),
 ('Imaš li više ovakvih postova?', 1, 2);
+
+SELECT * FROM korisnici;
+SELECT * FROM komentari;
+SELECT * FROM clanci;

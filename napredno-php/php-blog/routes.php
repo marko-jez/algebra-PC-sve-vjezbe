@@ -1,11 +1,9 @@
 <?php
 
-$routes = [
-  '/' => 'controllers/homeController.php',
-  '/articles' => 'controllers/articlesController.php',
-  '/articles-create' => 'controllers/articlesCreateController.php',
-];
-
-foreach($routes as $path => $controller) {
-  $router->addRoute($path, $controller);
-}
+$router->get('/', 'HomeController', 'index');
+$router->get('/articles', 'ArticlesController', 'index');
+$router->get('/articles-create', 'ArticlesController', 'create');
+$router->post('/articles-create', 'ArticlesController', 'store');
+$router->delete('/articles-delete', 'ArticlesController', 'destroy');
+$router->get('/articles-edit', 'ArticlesController', 'edit');
+$router->post('/articles-store-edited', 'ArticlesController', 'storeEdited');
